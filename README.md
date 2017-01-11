@@ -1,8 +1,8 @@
 # ReflectUtils
 
-[文档请点击](https://baonanhai.github.io/ReflectUtils/)
+[具体文档请点击](https://baonanhai.github.io/ReflectUtils/)
 
-使用例子
+使用样例
 
 #### 1、获取属性
 ```java
@@ -43,3 +43,4 @@ ReflectUtils.invokeMethod(new TestClass(), "append1", "xxx");
 ```
 ReflectUtils.invokeStaticMethod(TestClass.class, "append", "xxx", "ttt");
 ```
+有bug或者建议请发送邮件给baonanhai@gmail.com
