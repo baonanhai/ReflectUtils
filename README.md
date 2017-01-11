@@ -1,5 +1,7 @@
 # ReflectUtils
 
+简化java反射调用方式，用来获取属性、调用方法以及做一些判断（是否为公共的、私有的...）
+
 [具体文档请点击](https://baonanhai.github.io/ReflectUtils/)
 
 使用样例
