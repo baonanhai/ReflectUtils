@@ -43,4 +43,4 @@ ReflectUtils.invokeMethod(new TestClass(), "append1", "xxx");
 ```
 ReflectUtils.invokeStaticMethod(TestClass.class, "append", "xxx", "ttt");
 ```
-有bug或者建议请发送邮件给baonanhai@gmail.com
+有BUG或者建议请联系baonanhai@gmail.com
