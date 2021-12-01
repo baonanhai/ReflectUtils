@@ -33,6 +33,7 @@ public class ReflectUtils {
             }
         }
 
+
         if (field == null) {
             Class<?> superClass = sourceClass.getSuperclass();
             if (superClass != null) {
@@ -288,6 +289,66 @@ public class ReflectUtils {
             }
         }
         Method method = getMethod(sourceObject.getClass(), methodName, args);
+        Object result = null;
+        try {
+            if (method != null) {
+                method.setAccessible(true);
+                result = method.invoke(sourceObject, var2);
+            } else {
+                System.err.println("Method is not exist");
+            }
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    /**
+     * 执行静态方法
+     *
+     * @param sourceClass 类
+     * @param methodName  方法名
+     * @param var2        参数
+     * @return 执行结果
+     */
+    public static Object invokeStaticMethod(Class<?> sourceClass, String methodName, Class[] argsType, Object... var2) {
+
+        Method method = getMethod(sourceClass, methodName, argsType);
+        Object result = null;
+        try {
+            if (method != null) {
+                if (isStatic(method)) {
+                    method.setAccessible(true);
+                    result = method.invoke(null, var2);
+                } else {
+                    System.err.println("method is not static");
+                }
+            } else {
+                System.err.println("Method is not exist");
+            }
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    /**
+     * 执行类方法
+     *
+     * @param sourceObject 类对象
+     * @param methodName   方法名
+     * @param methodName   参数类型
+     * @param var2         参数
+     * @return 执行结果
+     */
+    public static Object invokeMethod(Object sourceObject, String methodName, Class[] argsType, Object... var2) {
+
+        Method method = getMethod(sourceObject.getClass(), methodName, argsType);
+
         Object result = null;
         try {
             if (method != null) {
